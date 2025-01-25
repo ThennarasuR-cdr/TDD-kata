@@ -8,4 +8,12 @@ describe('string constructor', () => {
 
         expect(result).toBe(0);
     });
+
+    it('should return the value when a string of length 1 is constructed', () => {
+        const string = '2';
+
+        const result = add(string);
+
+        expect(result).toBe(2);
+    });
 });
