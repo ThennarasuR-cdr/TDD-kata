@@ -3,5 +3,9 @@ module.exports = (string) => {
         return 0;
     }
 
-    return +string;
+    if(string.length===1){
+        return +string;
+    }
+
+    return (+string[0])+(+string[2]);
 }
