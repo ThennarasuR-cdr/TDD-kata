@@ -18,11 +18,18 @@ module.exports = (string) => {
         stringToConstruct=string.substring(SUBSTRING_START);
     }
 
-    return stringToConstruct
+    const numbers = stringToConstruct
             .replaceAll(customDelimitter,',')
             .split(',')
-            .map(str=>+str)
-            .reduce((acc,curr)=>{
+            .map(str=>+str);
+
+    const negativeNumber = numbers.find(number=>number<0);
+
+    if(negativeNumber){
+        throw new Error(`negative numbers not allowed ${negativeNumber}`)
+    }
+
+    return numbers.reduce((acc,curr)=>{
                 return acc+curr;
             });
 }

@@ -56,4 +56,14 @@ describe('string constructor', () => {
 
         expect(result).toBe(16);
     });
+
+    it('should throw exception when negative numbers are passed', () => {
+        try{
+            const string = '//;\n12;1;-3';
+            add(string);
+        }catch(e){
+            expect(e.message).toBe("negative numbers not allowed -3");
+        }
+
+    });
 });
