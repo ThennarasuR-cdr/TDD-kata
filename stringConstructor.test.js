@@ -24,4 +24,12 @@ describe('string constructor', () => {
 
         expect(result).toBe(5);
     });
+
+    it('should return the value when a string with multiple numbers is constructed', () => {
+        const string = '2,3,4,5';
+
+        const result = add(string);
+
+        expect(result).toBe(14);
+    });
 });
