@@ -23,10 +23,10 @@ module.exports = (string) => {
             .split(',')
             .map(str=>+str);
 
-    const negativeNumber = numbers.find(number=>number<0);
+    const negativeNumbers = numbers.filter(number=>number<0);
 
-    if(negativeNumber){
-        throw new Error(`negative numbers not allowed ${negativeNumber}`)
+    if(negativeNumbers.lenght>0){
+        throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`)
     }
 
     return numbers.reduce((acc,curr)=>{
