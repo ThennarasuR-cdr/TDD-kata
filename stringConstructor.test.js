@@ -40,4 +40,12 @@ describe('string constructor', () => {
 
         expect(result).toBe(25);
     });
+
+    it('should return the value when a string with numbers on new line is constructed', () => {
+        const string = '12,1\n3';
+
+        const result = add(string);
+
+        expect(result).toBe(16);
+    });
 });

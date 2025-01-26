@@ -8,6 +8,7 @@ module.exports = (string) => {
     }
 
     return string
+            .replaceAll('\n',',')
             .split(',')
             .map(str=>+str)
             .reduce((acc,curr)=>{
