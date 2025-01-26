@@ -7,8 +7,8 @@ module.exports = (string) => {
         return +string;
     }
 
-    return string.replaceAll(',','')
-            .split('')
+    return string
+            .split(',')
             .map(str=>+str)
             .reduce((acc,curr)=>{
                 return acc+curr;

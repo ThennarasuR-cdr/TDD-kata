@@ -32,4 +32,12 @@ describe('string constructor', () => {
 
         expect(result).toBe(14);
     });
+
+    it('should return the value when a string with two digit numbers is constructed', () => {
+        const string = '12,13';
+
+        const result = add(string);
+
+        expect(result).toBe(25);
+    });
 });
