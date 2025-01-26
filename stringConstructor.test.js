@@ -48,4 +48,12 @@ describe('string constructor', () => {
 
         expect(result).toBe(16);
     });
+
+    it('should return the value when a string with custom delimitters is constructed', () => {
+        const string = '//;\n12;1;3';
+
+        const result = add(string);
+
+        expect(result).toBe(16);
+    });
 });
