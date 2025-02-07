@@ -1,5 +1,6 @@
 const DELIMITTER_POSITION = 2;
 const SUBSTRING_START = 4;
+const MULTIPLY = '*';
 
 module.exports = (string) => {
     if(string.length===0){
@@ -24,12 +25,15 @@ module.exports = (string) => {
             .map(str=>+str);
 
     const negativeNumbers = numbers.filter(number=>number<0);
-
-    if(negativeNumbers.lenght>0){
+ 
+    if(negativeNumbers.length>0){
         throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`)
     }
 
-    return numbers.reduce((acc,curr)=>{
-                return acc+curr;
-            });
+    return numbers.reduce((acc,curr) => {
+        if(customDelimitter===MULTIPLY){
+            return acc*curr;
+        }
+        return acc+curr;
+    });
 }

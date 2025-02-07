@@ -61,6 +61,7 @@ describe('string constructor', () => {
         try{
             const string = '//;\n12;1;-3';
             add(string);
+            expect(true).toBe(false);
         }catch(e){
             expect(e.message).toBe("negative numbers not allowed -3");
         }
@@ -74,4 +75,12 @@ describe('string constructor', () => {
             expect(e.message).toBe("negative numbers not allowed -3,-9,-4");
         }
     });
+
+    it('should multiply the numbers when the custom delimitter is *', ()=>{
+        const string='//*\n12*3*2';
+
+        const result = add(string);
+
+        expect(result).toBe(72);
+    })
 });
