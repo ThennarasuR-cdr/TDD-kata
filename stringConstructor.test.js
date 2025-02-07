@@ -58,22 +58,15 @@ describe('string constructor', () => {
     });
 
     it('should throw exception when negative numbers are passed', () => {
-        try{
-            const string = '//;\n12;1;-3';
-            add(string);
-            expect(true).toBe(false);
-        }catch(e){
-            expect(e.message).toBe("negative numbers not allowed -3");
-        }
+        const string = '//;\n12;1;-3';
+        expect(()=>add(string))
+            .toThrow("negative numbers not allowed -3");
     });
 
     it('should throw exception with all neagtive numbers in message when negative numbers are passed', () => {
-        try{
-            const string = '//;\n12;1;-3;5;-9;-4';
-            add(string);
-        }catch(e){
-            expect(e.message).toBe("negative numbers not allowed -3,-9,-4");
-        }
+        const string = '//;\n12;1;-3;5;-9;-4';
+        expect(()=>add(string))
+            .toThrow("negative numbers not allowed -3,-9,-4");
     });
 
     it('should multiply the numbers when the custom delimitter is *', ()=>{
