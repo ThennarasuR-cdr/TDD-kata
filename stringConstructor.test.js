@@ -1,4 +1,4 @@
-const calculate = require('./stringConstructor.js');
+const {PARITY, calculate} = require('./stringConstructor.js');
 
 describe('string constructor', () => {
     it('should return 0 when empty string is constructed', () => {
@@ -75,5 +75,21 @@ describe('string constructor', () => {
         const result = calculate(string);
 
         expect(result).toBe(72);
-    })
+    });
+
+    it('should add only numbers at odd index when its sent as a param to the function', ()=>{
+        const string = '//;\n-12;1;3;5';
+
+        const result = calculate(string, PARITY.ODD);
+
+        expect(result).toBe(6);
+    });
+
+    it('should add only numbers at even index when its sent as a param to the function', ()=>{
+        const string = '//*\n12*-1*3*5';
+
+        const result = calculate(string, PARITY.EVEN);
+
+        expect(result).toBe(36);
+    });
 });
